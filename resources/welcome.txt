@@ -1,0 +1,34 @@
+Welcome to basic password manager written in Python !
+        
+    this program Store your passwords and usernames encrypted and locally and offline.
+    we generate new salt and create new database for the frist time you sign up.
+
+
+    Features:
+
+        - Generate new salt every sign up
+        - 27/4 the data in the DB is encrypted
+        - Change master password
+        - strong passwords generator
+
+
+    WARNING!:
+
+        if you lose your master password you lose all your data!
+        backup the database to avoid data loss
+        
+        DONT GIVE ANYONE YOUR MASTER PASSWORD !!!
+
+
+    Contact us:
+
+        Github: https://github.com/RedMads/
+        email: redmads@protonmail.com
+        
+
+    BUG report:
+
+        if you discover a bug in this program please send us email with screenshots and explain the bug!
+
+
+- Made By RedMad :$
