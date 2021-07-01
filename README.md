@@ -9,7 +9,7 @@ secure password manager written in python !
 ![pyPassword](https://github.com/RedMads/pyPassword/blob/main/screenshots/list_data.png)
 
 
-#install
+# install
 ***
 ~~~
 git clone https://github.com/RedMads/pyPassword.git
