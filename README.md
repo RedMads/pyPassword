@@ -22,3 +22,23 @@ chmod +x install.sh && chmod +x update.sh
 
 python3 main.py
 ~~~
+
+
+# attention !
+***
+to add more security convert the progrom from py source code to executable using PyInstaller module!
+
+make sure you in the pyPassword directory!
+```
+pip3 install PyInstaller
+
+python3 -m PyInstaller --onefile main.py
+
+mv dist/main .
+
+rm dist build -rf
+
+rm main.spec
+
+chmod +x main && ./main
+```
