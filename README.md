@@ -43,7 +43,7 @@ python3 main.py
 
 # update
 ***
-to update this program just execute ~update.sh~ file !
+to update this program just execute `update.sh` file !
 
 # attention !
 ***
