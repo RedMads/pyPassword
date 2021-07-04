@@ -8,8 +8,8 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # install some good things !
-apt update -y && apt upgrade -y
-apt install git python python3 python3-pip -y
+sudo apt update -y && apt upgrade -y
+sudo apt install git python python3 python3-pip -y
 
 pip3 install cryptography prettytable bcrypt
 
