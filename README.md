@@ -9,16 +9,34 @@ secure password manager written in python !
 ![pyPassword](https://github.com/RedMads/pyPassword/blob/main/screenshots/list_data.png)
 
 
-# install
+# install for linux
 ***
 ~~~
+sudo apt install git
+
 git clone https://github.com/RedMads/pyPassword.git
 
 cd pyPassword
 
 chmod +x install.sh && chmod +x update.sh
 
-./install.sh
+bash install.sh
+
+python3 main.py
+~~~
+
+# install for termux
+***
+~~~
+pkg install git
+
+git clone https://github.com/RedMads/pyPassword.git
+
+cd pyPassword
+
+chmod +x install_termux && chmod +x update.sh
+
+bash install_termux.sh
 
 python3 main.py
 ~~~
