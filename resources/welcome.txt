@@ -7,7 +7,7 @@ Welcome to basic password manager written in Python !
     Features:
 
         - Generate new salt every sign up
-        - 27/4 the data in the DB is encrypted
+        - 24/7 the data in the DB is encrypted
         - Change master password
         - strong passwords generator
 
