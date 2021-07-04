@@ -41,6 +41,9 @@ bash install_termux.sh
 python3 main.py
 ~~~
 
+# update
+***
+to update this program just execute ~update.sh~ file !
 
 # attention !
 ***
