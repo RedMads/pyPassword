@@ -3,7 +3,8 @@
 from src.enc import Encrypt
 from src.input_vaild import Input_vaild
 from src.banner import Banner
-import sqlite3, getpass, bcrypt, os, prettytable, sys
+from src.check_os import Check_os
+import sqlite3, getpass, bcrypt, os, prettytable, sys, json
 
 
 # Database Class
@@ -35,6 +36,7 @@ class DB:
 
         self.e_obj = Encrypt()
         self.i_obj = Input_vaild()
+        self.os_obj = Check_os()
 
         self.table = prettytable.PrettyTable()
         self.salt = self.get_salt()
@@ -193,7 +195,7 @@ class DB:
 
 
     # list all decrypted data in table
-    def list_all_data(self):
+    def list_linux(self):
 
         self.table.clear(); print("\n")
 
@@ -210,6 +212,26 @@ class DB:
 
         print(self.table); print("\n")
 
+
+
+    # this function list for termux users (JSON) !
+    def list_termux(self):
+
+        for data in self.dec(self.aes_key):
+
+            all_data = {
+                "site": data[0],
+                "username": data[1],
+                "password": data[2],
+                "notes": data[3]
+            }
+
+            print(json.dumps(all_data, indent=3, ensure_ascii=False))
+
+    def List(self):
+
+        if self.os_obj.is_termux(): self.list_termux()
+        else: self.list_linux()
 
 
     # change=false: get password for frist time
@@ -395,7 +417,7 @@ class DB:
 
             elif inp == "2":
                 self.clear(); Banner()
-                self.master_login(True); self.list_all_data(); self.menu()
+                self.master_login(True); self.List(); self.menu()
                 
 
             elif inp == "3":
@@ -426,7 +448,5 @@ class DB:
 
 if __name__ == "__main__":
 
+
     d_obj = DB()
-
-
-    
