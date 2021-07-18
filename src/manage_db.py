@@ -178,7 +178,7 @@ class DB:
 
 
     # decrypt all data and sort it [site, username, password, note]
-    def dec(self, key):
+    def dec_sort(self, key):
 
         enc_data = self.enc_all_data(key)
 
@@ -217,17 +217,24 @@ class DB:
     # this function list for termux users (JSON) !
     def list_termux(self):
 
-        for data in self.dec(self.aes_key):
+        data = self.dec_sort(self.aes_key)
+        Id = 0
 
-            all_data = {
-                "site": data[0],
-                "username": data[1],
-                "password": data[2],
-                "notes": data[3]
-            }
+        for d in data:
+            Id += 1
+            print("\n")
+            all_data = {"data":{
+                "id": Id,
+                "site": d[0],
+                "username":d[1],
+                "password":d[2],
+                "notes": d[3]
+            }}
 
             print(json.dumps(all_data, indent=3, ensure_ascii=False))
 
+
+    # this function list the data if user linux or termux !
     def List(self):
 
         if self.os_obj.is_termux(): self.list_termux()
@@ -350,7 +357,7 @@ class DB:
         
         self.c.execute(f"UPDATE master SET password = '{str(hash)}', salt = '{str(salt)}';")
 
-        data = self.dec(self.old_aes_key)
+        data = self.dec_sort(self.old_aes_key)
 
         self.c.execute("DROP TABLE data;"); self.conn.commit()
         self.create_data_tb()
@@ -448,5 +455,5 @@ class DB:
 
 if __name__ == "__main__":
 
-
     d_obj = DB()
+    
