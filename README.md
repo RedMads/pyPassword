@@ -12,15 +12,13 @@ secure password manager written in python !
 # install for linux
 ***
 ~~~
-sudo apt install git
+sudo apt install git python python3
 
-git clone https://github.com/RedMads/pyPassword.git
+git clone https://github.com/RedMads/pyPassword.git && cd pyPassword
 
-cd pyPassword
+chmod +x installers/install_linux.sh && chmod +x update.sh
 
-chmod +x install.sh && chmod +x update.sh
-
-bash install.sh
+bash installers/install_linux.sh
 
 python3 main.py
 ~~~
@@ -30,16 +28,26 @@ python3 main.py
 ~~~
 pkg install git
 
-git clone https://github.com/RedMads/pyPassword.git
+git clone https://github.com/RedMads/pyPassword.git && cd pyPassword
 
-cd pyPassword
+chmod +x installers/install_termux.sh && chmod +x update.sh
 
-chmod +x install_termux && chmod +x update.sh
-
-bash install_termux.sh
+bash installers/install_termux.sh
 
 python3 main.py
 ~~~
+
+# install for windows
+***
+make sure youre install python language from [Here](https://python.org/)
+
+Download the repo zip extract it
+
+and double click on `installers/install_win.bat`
+it will install some librarys the program will need
+when the install is done just double click on `main.py`
+it will execute the program follow the sign up !
+
 
 # update
 ***
