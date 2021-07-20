@@ -15,7 +15,6 @@ class DB:
         self.db_name = "db/database.db"
         self.conn = sqlite3.connect(self.db_name)
         self.c = self.conn.cursor()
-        self.clear = lambda: os.system("clear") # clear function !
 
         self.len_salt = 30
 
@@ -37,6 +36,7 @@ class DB:
         self.e_obj = Encrypt()
         self.i_obj = Input_vaild()
         self.os_obj = Check_os()
+
 
         self.table = prettytable.PrettyTable()
         self.salt = self.get_salt()
@@ -237,9 +237,8 @@ class DB:
     # this function list the data if user linux or termux !
     def List(self):
 
-        if self.os_obj.is_termux(): self.list_termux()
-        else: self.list_linux()
-
+        if self.os_obj.is_linux() or self.os_obj.is_windows(): self.list_linux()
+        else: self.os_obj.is_windows()
 
     # change=false: get password for frist time
     # change=True: change the password
@@ -333,7 +332,7 @@ class DB:
 
             self.aes_key = self.e_obj.password_to_fernet_key(password, self.salt)
 
-            if self.check_hash(password): self.clear(); Banner(); self.menu()
+            if self.check_hash(password): self.os_obj.clear(); Banner(); self.menu()
 
             else: print("password incorrect!"); sys.exit()
                 
@@ -381,7 +380,7 @@ class DB:
     # ask user for input data
     def input_data(self):
 
-        self.clear(); Banner()
+        self.os_obj.clear(); Banner()
 
         site = self.i_obj.site_input()
         username = self.i_obj.username_input()
@@ -402,7 +401,7 @@ class DB:
             encrypted_data[3]
         )
 
-        self.clear(); Banner()
+        self.os_obj.clear(); Banner()
 
     # main menu 
     def menu(self):
@@ -423,7 +422,7 @@ class DB:
                 self.menu()
 
             elif inp == "2":
-                self.clear(); Banner()
+                self.os_obj.clear(); Banner()
                 self.master_login(True); self.List(); self.menu()
                 
 
