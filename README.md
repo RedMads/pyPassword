@@ -53,6 +53,8 @@ it will execute the program follow the sign up !
 ***
 to update this program just execute `update.sh` file !
 
+NOTICE: it will not work for windows just linux and termux.
+
 # attention !
 ***
 to add more security convert the progrom from py source code to executable using PyInstaller module!
