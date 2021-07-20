@@ -195,7 +195,7 @@ class DB:
 
 
     # list all decrypted data in table
-    def list_linux(self):
+    def list_table(self):
 
         self.table.clear(); print("\n")
 
@@ -215,7 +215,7 @@ class DB:
 
 
     # this function list for termux users (JSON) !
-    def list_termux(self):
+    def list_json(self):
 
         data = self.dec_sort(self.aes_key)
         Id = 0
@@ -237,8 +237,10 @@ class DB:
     # this function list the data if user linux or termux !
     def List(self):
 
-        if self.os_obj.is_linux() or self.os_obj.is_windows(): self.list_linux()
-        else: self.os_obj.is_windows()
+        # i think this not the best way to do it but i have too :(
+        if self.os_obj.is_linux(): self.list_table()
+        if self.os_obj.is_windows(): self.list_table()
+        if self.os_obj.is_termux(): self.list_json()
 
     # change=false: get password for frist time
     # change=True: change the password
