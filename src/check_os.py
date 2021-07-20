@@ -35,6 +35,18 @@ class Check_os:
 
         if self.check_os() == "termux": return True
         else: return False
+    
+    # check if it is windows !
+    def is_windows(self):
+
+        if os.name == "nt": return True
+        else: return False
+
+    # this function clear in different opreating systems (Linux, Windows)
+    def clear(self):
+
+        if os.name == "nt": os.system("cls")
+        else: os.system("clear")
 
 
 # Test !
