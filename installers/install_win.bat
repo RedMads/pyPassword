@@ -1,0 +1,1 @@
+pip3 install cryptography prettytable bcrypt
